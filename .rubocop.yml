@@ -9,8 +9,20 @@
 #
 # See https://github.com/rubocop-hq/rubocop/blob/master/manual/configuration.md
 
+require: rubocop-rspec
+
 Layout/LineLength:
   Max: 120
+
+Layout/SpaceInsideArrayLiteralBrackets:
+  Enabled: false
+
+Metrics/BlockLength:
+  Exclude:
+    - spec/**/*_spec.rb
+
+RSpec/VerifiedDoubles:
+  Enabled: false
 
 Style/Documentation:
   Enabled: false
@@ -26,8 +38,9 @@ Style/HashTransformValues:
 
 Style/PercentLiteralDelimiters:
   PreferredDelimiters:
-    default: "[]"
-    '%q':    "{}"
+    default: "{}"
+    '%w':    "[]"
+    '%i':    "[]"
 
 Style/StringLiterals:
   EnforcedStyle: double_quotes
